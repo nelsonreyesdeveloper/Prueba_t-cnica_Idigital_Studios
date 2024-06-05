@@ -836,7 +836,7 @@
                         class="font-semibold text-gray-700 hover:text-gray-900 dark:text-gray-900  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">INICIAR
                         SESION</a>
 
-                
+
                 @endauth
             </div>
         @endif
