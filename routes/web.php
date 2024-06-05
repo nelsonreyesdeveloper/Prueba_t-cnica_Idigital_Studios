@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +23,29 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+
+    /* /users para toda la logica de mostrar, eliminar y actualizar usuarios */
+
+    Route::middleware('can:all')->group(function () {
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        Route::get('/users/json', [UserController::class, 'getUsersJson'])->name('users.json');
+
+        route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+        route::post('/users', [UserController::class, 'store'])->name('users.store');
+
+        route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+
+        route::get('/users/{user}', [UserController::class, 'edit'])->name('users.edit');
+    });
+
+
+
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

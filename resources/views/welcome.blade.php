@@ -836,16 +836,13 @@
                         class="font-semibold text-gray-700 hover:text-gray-900 dark:text-gray-900  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">INICIAR
                         SESION</a>
 
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-700 hover:text-gray-900 dark:text-gray-900  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">REGISTRARSE</a>
-                    @endif
+                
                 @endauth
             </div>
         @endif
 
         <div class="max-w-7xl mx-auto p-6 lg:p-8">
-            <h3 class="font-bold text-2xl ">PRUEBA TECNICA | NELSON REYES </h3>
+            <h3 class="font-bold text-2xl my-2 ">PRUEBA TECNICA | NELSON REYES </h3>
             <img src="img/fondo.jpeg">
 
 
